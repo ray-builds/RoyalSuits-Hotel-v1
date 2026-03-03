@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Cinzel:wght@400;500;600&family=Cairo:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Royal Suites Brand Colors */
+    --gold-primary: 45 55% 54%;
+    --gold-light: 45 70% 70%;
+    --gold-dark: 45 80% 31%;
+    --black-deep: 0 0% 5%;
+    --black-rich: 0 0% 10%;
+    --gray-warm: 0 0% 17%;
+    --cream: 43 35% 92%;
+    
+    /* shadcn/ui theme mapping */
+    --background: 0 0% 5%;
+    --foreground: 43 35% 92%;
+    --card: 0 0% 10%;
+    --card-foreground: 43 35% 92%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 43 35% 92%;
+    --primary: 45 55% 54%;
+    --primary-foreground: 0 0% 5%;
+    --secondary: 0 0% 17%;
+    --secondary-foreground: 43 35% 92%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 43 20% 70%;
+    --accent: 45 55% 54%;
+    --accent-foreground: 0 0% 5%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 30% 30%;
+    --input: 0 0% 17%;
+    --ring: 45 55% 54%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Cormorant Garamond', 'Cairo', serif;
+  }
+  
+  /* English typography */
+  html[lang="en"] body {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  html[lang="en"] h1,
+  html[lang="en"] h2,
+  html[lang="en"] h3,
+  html[lang="en"] h4,
+  html[lang="en"] h5,
+  html[lang="en"] h6 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  /* Arabic typography */
+  html[lang="ar"] body {
+    font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;
+  }
+  
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] h5,
+  html[lang="ar"] h6 {
+    font-family: 'Noto Naskh Arabic', 'Tajawal', serif;
+  }
+  
+  /* UI elements */
+  .font-ui {
+    font-family: 'Cinzel', 'Tajawal', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  /* Gold text gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #E8C97A 0%, #C9A84C 50%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Gold border gradient */
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, #E8C97A 0%, #C9A84C 50%, #8B6914 100%) 1;
+  }
+  
+  /* Gold background gradient */
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #E8C97A 0%, #C9A84C 50%, #8B6914 100%);
+  }
+  
+  /* Gold shimmer animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201, 168, 76, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+  }
+  
+  /* Fade in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  /* Slide in from left */
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+  
+  /* Slide in from right */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+  
+  /* Scale in animation */
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Pulse glow */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(201, 168, 76, 0.6);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--black-rich));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold-primary) / 0.5);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--gold-primary));
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background: hsl(var(--gold-primary) / 0.3);
+    color: hsl(var(--cream));
+  }
+  
+  /* Focus styling */
+  :focus-visible {
+    outline: 2px solid hsl(var(--gold-primary));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-gold {
+    @apply px-6 py-3 bg-gold-gradient text-[#0D0D0D] font-semibold rounded-md transition-all duration-300;
+  }
+  
+  .btn-gold:hover {
+    @apply shadow-lg;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline-gold {
+    @apply px-6 py-3 border-2 border-[#C9A84C] text-[#C9A84C] font-semibold rounded-md transition-all duration-300 bg-transparent;
+  }
+  
+  .btn-outline-gold:hover {
+    @apply bg-[#C9A84C] text-[#0D0D0D];
+  }
+  
+  /* Card styling */
+  .card-luxury {
+    @apply bg-[#1A1A1A] border border-[#C9A84C]/20 rounded-lg overflow-hidden transition-all duration-300;
+  }
+  
+  .card-luxury:hover {
+    @apply border-[#C9A84C]/50;
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.15);
+  }
+  
+  /* Section divider */
+  .divider-gold {
+    @apply w-24 h-0.5 bg-gold-gradient mx-auto;
+  }
+  
+  /* Glass effect */
+  .glass {
+    @apply bg-black/40 backdrop-blur-md border border-white/10;
+  }
+  
+  /* Hero overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(13, 13, 13, 0.7) 0%,
+      rgba(13, 13, 13, 0.4) 50%,
+      rgba(13, 13, 13, 0.9) 100%
+    );
+  }
+  
+  /* Image hover zoom */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+  
+  .img-zoom img {
+    @apply transition-transform duration-500;
+  }
+  
+  .img-zoom:hover img {
+    @apply scale-110;
+  }
+}
+
+@layer utilities {
+  /* Text colors */
+  .text-gold {
+    color: #C9A84C;
+  }
+  
+  .text-gold-light {
+    color: #E8C97A;
+  }
+  
+  .text-cream {
+    color: #F5EFE0;
+  }
+  
+  /* Background colors */
+  .bg-black-deep {
+    background-color: #0D0D0D;
+  }
+  
+  .bg-black-rich {
+    background-color: #1A1A1A;
+  }
+  
+  .bg-gray-warm {
+    background-color: #2C2C2C;
+  }
+  
+  /* Border colors */
+  .border-gold {
+    border-color: #C9A84C;
+  }
+  
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
