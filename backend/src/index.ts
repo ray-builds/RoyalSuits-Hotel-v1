@@ -26,7 +26,7 @@ app.use('/api', router);
 app.use(errorHandler as express.ErrorRequestHandler);
 
 app.listen(config.PORT, () => {
-  logger.info({ port: config.PORT, env: config.NODE_ENV }, 'RoyalSuits Hotel API started');
+  logger.info({ port: config!.PORT, env: config.NODE_ENV }, 'RoyalSuits Hotel API started');
 });
 
 export { app };
